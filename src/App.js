@@ -15,7 +15,7 @@ function App() {
       <Route path='/signup' element={<Signup/>}/>
       <Route path='/login' element={<Login/>}/>
       <Route path='/forgotpassword' element={<ForgotPassword/>}/>
-      <Route path="/profile/:id" element={<PrivateRoute><Profile/></PrivateRoute>}/>
+      <Route path='/profile/:id' element={<PrivateRoute><Profile/></PrivateRoute>}/>
       <Route path ='/' element={<PrivateRoute><Feed/></PrivateRoute>}/>
       </Routes>
       </AuthProvider>

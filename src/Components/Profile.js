@@ -14,13 +14,10 @@ import Like2 from './Like2';
 import Dialog from '@mui/material/Dialog';
 import './Profile.css'
 import { AuthContext } from '../Context/AuthContext'
-
-
 function Profile() {
     const {user} =  useContext(AuthContext)
     const { id } = useParams()
-     console.log(id)
-
+    console.log(id)
     const [userData, setUserData] = useState(null)
     const [currentUser,setCurrentUser] = useState(null)
     const [posts, setPosts] = useState(null)
@@ -108,7 +105,7 @@ function Profile() {
                                                     
                                                 <video muted={true}  onClick={() => handleClickOpen(post.pId)} style={{cursor:'pointer'}}>
                                                                     <source src={post.pUrl} />
-                                                                </video>
+                                                </video>
                                                     <Dialog
                                                         open={open == post.pId}
                                                         onClose={handleClose}

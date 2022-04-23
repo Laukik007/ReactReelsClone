@@ -56,7 +56,7 @@ export default function Navbar({ userData }) {
         history('/login')
     }
     const handleExplore = () =>{
-        let win = window.open("https://github.com/sankalp-srivastava/React-reels-clone")
+        let win = window.open("https://github.com/Laukik007/ReactReelsClone")
         win.focus();
     }
 

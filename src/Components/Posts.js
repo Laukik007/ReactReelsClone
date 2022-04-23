@@ -20,8 +20,9 @@ import Grid from "@material-ui/core/Grid";
 import CloseIcon from "@material-ui/icons/Close";
 import Addcomment from './Addcomment';
 import Comments from './Comments';
-
+import { useNavigate } from 'react-router-dom';
 function Posts({ userData }) {
+    const history=useNavigate();
     console.log(userData);
     const [posts, setPost] = useState(null);
     const [open, setOpen] = React.useState(null);
@@ -47,6 +48,7 @@ function Posts({ userData }) {
         return unsub
     }, [])
     console.log(posts);
+    
     return (
         <div>
             {
@@ -59,7 +61,7 @@ function Posts({ userData }) {
                                         <Video src={post.pUrl} />
                                         <div className="fa" style={{ display: 'flex' }}>
                                             <Avatar src={post.uProfile} />
-                                            <h4>{post.uName}</h4>
+                                            <h4 style={{cursor:'pointer'}} onClick={()=>history(`/profile/${post.userID}`)}>{post.uName}</h4>
                                         </div>
                                         <Like userData={userData} postData={post} />
                                         <CommentIcon className='comment-styling' onClick={() => handleClickOpen(post.pId)} />
@@ -73,7 +75,7 @@ function Posts({ userData }) {
                                         >
                                             <DialogTitle style={{ margin: '2%', padding: '0px 9px' }}>
                                                 <Grid container justifyContent="space-between" alignItems="center">
-                                                    <Typography variant="div" >Comments</Typography>
+                                                    <Typography variant="div">Comments</Typography>
                                                     <CloseIcon onClick={handleClose} style={{ cursor: 'pointer' }} />
                                                 </Grid>
                                             </DialogTitle>
@@ -90,7 +92,7 @@ function Posts({ userData }) {
                                                     <Card varient="outlined" className="card2">
                                                         <Typography style={{ padding: '0.5rem' }}>
                                                             {
-                                                                post.likes.length == 0 ? "Liked by nobody" : `Liked by ${post.likes.length} users`
+                                                                post.likes.length == 0 ? "Be the First one to Like this Video" : `Liked by ${post.likes.length} users`
                                                             }
                                                         </Typography>
                                                         <div style={{ display: 'flex' }}>
@@ -98,6 +100,8 @@ function Posts({ userData }) {
                                                             <Addcomment postData={post} userData={userData}/>
 
                                                         </div>
+
+
                                                     </Card>
                                                 </div>
                                             </div>
