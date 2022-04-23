@@ -22,6 +22,7 @@ import Addcomment from './Addcomment';
 import Comments from './Comments';
 
 function Posts({ userData }) {
+    console.log(userData);
     const [posts, setPost] = useState(null);
     const [open, setOpen] = React.useState(null);
 
@@ -45,7 +46,7 @@ function Posts({ userData }) {
 
         return unsub
     }, [])
-
+    console.log(posts);
     return (
         <div>
             {

@@ -119,7 +119,7 @@ export default function Signup() {
                         </CardContent>
                     
                     <CardActions>
-                        <LoadingButton fullWidth={true} variant="contained" color="primary" loading={loading} onClick={handleClick} endIcon={<PersonAddIcon />}loadingPosition="end">
+                        <LoadingButton fullWidth={true} variant="contained" color="primary"  loading={loading} onClick={handleClick} endIcon={<PersonAddIcon />}loadingPosition="end">
                             Sign Up
                         </LoadingButton>
                     </CardActions>

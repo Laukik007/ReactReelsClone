@@ -7,7 +7,8 @@ import {v4 as uuidv4} from 'uuid'
 import { database,storage } from '../Firebase';
 
 function UploadFile(props) {
-    console.log(props.user.userID);
+    console.log(props);
+    console.log(props.user);
     const [error,setError] = useState('');
     const [loading,setLoading] = useState(false);
 
@@ -52,7 +53,7 @@ function UploadFile(props) {
                         pUrl:url,
                         uName : props.user.fullname,
                         uProfile : props.user.profileUrl,
-                        userId : props.user.userID,
+                        userID : props.user.userID,
                         createdAt : database.getTimeStamp()
                     }
                     database.posts.add(obj).then(async(ref)=>{
